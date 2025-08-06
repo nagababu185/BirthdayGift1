@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Happy Birthday!</title>
+    <meta charset="UTF-8">
+    <style>
+      body {
+        background: linear-gradient(120deg, #f9d423 0%, #ff4e50 100%);
+        color: #fff;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+      .container {
+        margin-top: 80px;
+        background: rgba(255,255,255,0.18);
+        border-radius: 30px;
+        padding: 50px 30px;
+        box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.37);
+        display: inline-block;
+        animation: popIn 1s cubic-bezier(.68,-0.55,.27,1.55) forwards;
+        position: relative;
+        z-index: 2;
+      }
+      @keyframes popIn {
+        0% { transform: scale(0.7); opacity: 0; }
+        100% { transform: scale(1); opacity: 1; }
+      }
+      h1 {
+        font-size: 3.5em;
+        margin-bottom: 15px;
+        letter-spacing: 3px;
+        text-shadow: 2px 2px 8px #ff4e50, 0 0 10px #fff;
+        animation: fadeInDown 1.2s;
+        cursor: pointer;
+        transition: color 0.3s, text-shadow 0.3s;
+      }
+      h1:hover {
+        color: #f9d423;
+        text-shadow: 0 0 20px #fff, 0 0 40px #ff4e50;
+      }
+      @keyframes fadeInDown {
+        0% { opacity: 0; transform: translateY(-40px); }
+        100% { opacity: 1; transform: translateY(0); }
+      }
+      p {
+        font-size: 1.6em;
+        margin-bottom: 35px;
+        line-height: 1.5;
+        animation: fadeInUp 1.2s;
+        cursor: pointer;
+        transition: color 0.3s;
+      }
+      p:hover {
+        color: #ff4e50;
+      }
+      img {
+        width: 220px;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 50%;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+        margin-bottom: 25px;
+        border: 6px solid #fff;
+        animation: bounceIn 1.3s;
+        transition: transform 0.3s, box-shadow 0.3s;
+        cursor: pointer;
+      }
+      img:hover {
+        transform: scale(1.08) rotate(-5deg);
+        box-shadow: 0 16px 48px rgba(255,78,80,0.4);
+      }
+      .confetti {
+        font-size: 2.5em;
+        margin-bottom: 25px;
+        animation: confettiPop 1.5s infinite alternate;
+        cursor: pointer;
+        transition: filter 0.3s;
+      }
+      .confetti:hover {
+        filter: brightness(1.3) drop-shadow(0 0 10px #fff);
+      }
+      @keyframes confettiPop {
+        0% { transform: scale(1) rotate(-5deg); }
+        100% { transform: scale(1.15) rotate(5deg); }
+      }
+      /* Animated floating balloons */
+      .balloon {
+        position: absolute;
+        width: 60px;
+        height: 80px;
+        border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+        background: radial-gradient(circle at 30% 30%, #fff 10%, #ff4e50 90%);
+        box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        animation: floatBalloon 6s ease-in-out infinite;
+        z-index: 0;
+        transition: transform 0.3s;
+      }
+      .balloon:hover {
+        transform: scale(1.2) rotate(10deg);
+      }
+      .balloon.b1 { left: 10vw; top: 60vh; animation-delay: 0s; background: radial-gradient(circle at 30% 30%, #fff 10%, #f9d423 90%); }
+      .balloon.b2 { left: 80vw; top: 70vh; animation-delay: 2s; background: radial-gradient(circle at 30% 30%, #fff 10%, #ff4e50 90%); }
+      .balloon.b3 { left: 50vw; top: 80vh; animation-delay: 1s; background: radial-gradient(circle at 30% 30%, #fff 10%, #e1eec3 90%); }
+      @keyframes floatBalloon {
+        0% { transform: translateY(0) scale(1); }
+        50% { transform: translateY(-40px) scale(1.05); }
+        100% { transform: translateY(0) scale(1); }
+      }
+      /* Button animation */
+      #notifyBtn {
+        transition: background 0.3s, transform 0.2s;
+      }
+      #notifyBtn:hover {
+        background: #f9d423;
+        transform: scale(1.08);
+      }
+      /* Continuous motion effect for final images */
+      .motion-pic {
+        animation: floatPic 3s ease-in-out infinite;
+      }
+      @keyframes floatPic {
+        0% { transform: translateY(0) scale(1); }
+        50% { transform: translateY(-20px) scale(1.05) rotate(-5deg); }
+        100% { transform: translateY(0) scale(1); }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="balloon b1"></div>
+    <div class="balloon b2"></div>
+    <div class="balloon b3"></div>
+    <!-- Welcome Page -->
+    <div id="welcome" class="container">
+      <div class="confetti">🎉🎂🎈</div>
+      <h1>Welcome!</h1>
+      <img src="pilla.png" alt="Birthday Girl" />
+      <p>Click the button below for a special birthday surprise!</p>
+      <button id="notifyBtn" style="font-size:1.2em;padding:10px 30px;border-radius:8px;border:none;background:#ff4e50;color:#fff;cursor:pointer;box-shadow:0 2px 8px #f9d423;">Show Surprise</button>
+      <div class="confetti">💖🌟🥳</div>
+    </div>
+
+    <!-- Notification and Video Section (hidden initially) -->
+    <div id="notification" class="container" style="display:none;">
+      <h1>🎬 May Your birthday be filled with peace,joy,and hevenly blessing</h1>
+      <p>Hello SuperWomen. After it ends, you'll see a message!</p>
+      <video id="birthdayVideo" width="400" controls style="border-radius:20px;box-shadow:0 4px 16px #ff4e50;">
+        <source src="vi.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <!-- Final Message (hidden initially) -->
+    <div id="finalMessage" class="container" style="display:none;">
+      <h1>Happy Birthday to my lovely akka!</h1>
+      <p>May her day be filled with joy, laughter, and unforgettable memories!</p>
+      <img src="m.jpg" alt="Pic M" class="motion-pic" />
+      <img src="n.jpg" alt="Pic N" class="motion-pic" />
+      <div class="confetti">🎉🎂🎈💖🌟🥳</div>
+      <h2 style="margin-top:30px;color:#fff;text-shadow:0 0 10px #ff4e50,0 0 20px #f9d423;">With love, Banu!</h2>
+    </div>
+
+    <script>
+      // Interactive elements
+      const notifyBtn = document.getElementById('notifyBtn');
+      const welcome = document.getElementById('welcome');
+      const notification = document.getElementById('notification');
+      const birthdayVideo = document.getElementById('birthdayVideo');
+      const finalMessage = document.getElementById('finalMessage');
+
+      // Button click to show video
+      notifyBtn.addEventListener('click', () => {
+        welcome.style.display = 'none';
+        notification.style.display = 'inline-block';
+        // Play sound effect
+        playSound('https://cdn.pixabay.com/audio/2022/07/26/audio_124bfae7c7.mp3');
+      });
+
+      // Video end to show final message
+      birthdayVideo.addEventListener('ended', () => {
+        notification.style.display = 'none';
+        finalMessage.style.display = 'inline-block';
+        // Play celebration sound
+        playSound('https://cdn.pixabay.com/audio/2022/03/15/audio_115b6b7b7b.mp3');
+      // Animate all images after video ends
+      const imgs = finalMessage.querySelectorAll('img');
+      imgs.forEach(img => {
+        img.classList.add('animate-pic');
+        setTimeout(() => {
+          img.classList.remove('animate-pic');
+        }, 2000);
+      });
+      });
+
+      // Confetti click effect
+      document.querySelectorAll('.confetti').forEach(el => {
+        el.addEventListener('click', () => {
+          el.style.filter = 'brightness(2) drop-shadow(0 0 20px #fff)';
+          setTimeout(() => {
+            el.style.filter = '';
+          }, 500);
+        });
+      });
+
+      // Balloons pop effect
+      document.querySelectorAll('.balloon').forEach(balloon => {
+        balloon.addEventListener('click', () => {
+          balloon.style.transform = 'scale(0.7) rotate(-20deg)';
+          setTimeout(() => {
+            balloon.style.transform = '';
+          }, 400);
+        });
+      });
+
+      // Play sound helper
+      function playSound(url) {
+        const audio = new Audio(url);
+        audio.play();
+      }
+    </script>
+  </body>
+</html>
